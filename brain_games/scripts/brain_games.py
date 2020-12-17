@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
+"""Main program."""
+
 from brain_games.cli import welcome_user
 
 
 def main():
+    """Do main loop start the games."""
     print('Welcome to the Brain Games!')
     welcome_user()
 
