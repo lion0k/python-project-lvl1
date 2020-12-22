@@ -60,6 +60,23 @@ def is_odd(number: int) -> str:
     return 'yes' if number % 2 == 0 else 'no'
 
 
+def gcd(op1: int, op2: int) -> int:
+    """
+    Found great common divider.
+
+    Args:
+        op1: operand 1
+        op2: operand 2
+
+    Returns:
+        int
+    """
+    if (op1 == 0) or (op2 == 0):
+        return max(op1, op2)
+    op_min = min(op1, op2)
+    return gcd(max(op1, op2) % op_min, op_min)
+
+
 def set_question_and_answer(question, answer: str) -> namedtuple:
     """
     Check the input string for a number.
