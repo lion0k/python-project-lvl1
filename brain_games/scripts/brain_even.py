@@ -2,23 +2,25 @@
 
 """Game Brain Even."""
 
-from collections import namedtuple
-
-from brain_games.engine import get_random_number, is_odd, start_play
+from brain_games.engine import (
+    get_random_number,
+    is_odd,
+    set_question_and_answer,
+    start_play,
+)
 
 DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def _iter_brain_even() -> namedtuple:
+def _iter_brain_even() -> tuple:
     """
     Run iteration game function.
 
     Returns:
-        namedtuple: contains question and correct answer
+        tuple: namedtuple contains question and correct answer
     """
     number = get_random_number()
-    game_iter = namedtuple('GameIter', 'question, answer')
-    return game_iter(question=number, answer=is_odd(number))
+    return set_question_and_answer(number, is_odd(number))
 
 
 def main():

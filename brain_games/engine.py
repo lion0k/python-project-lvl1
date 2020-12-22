@@ -1,6 +1,7 @@
 """Game engine and additional functions."""
 
 from collections import namedtuple
+from operator import add, mul, sub
 from random import randint
 
 from brain_games.cli import (
@@ -13,20 +14,37 @@ from brain_games.cli import (
 )
 
 COUNT_PLAY_TRY = 3
+OPERATIONS = ('+', '-', '*')
 
 
-def get_random_number(min_number=1, max_number=100) -> int:
+def get_random_number(min_num=1, max_num=30) -> int:
     """
     Get an random number from range.
 
     Args:
-        min_number: minimum number, default = 1
-        max_number: maximum number, default = 100
+        min_num: minimum number, default = 1
+        max_num: maximum number, default = 30
 
     Returns:
         int
     """
-    return randint(min_number, max_number)
+    return randint(min_num, max_num)
+
+
+def get_random_operation() -> namedtuple:
+    """
+    Get an random operation.
+
+    Returns:
+        namedtuple: contains current operation and function
+    """
+    operations_func = {'+': add, '-': sub, '*': mul}
+    op_random = namedtuple('OperationRandom', 'operation operation_func')
+    current_operation = OPERATIONS[get_random_number(0, 2)]
+    return op_random(
+        operation=current_operation,
+        operation_func=operations_func[current_operation],
+    )
 
 
 def is_odd(number: int) -> str:
@@ -42,21 +60,19 @@ def is_odd(number: int) -> str:
     return 'yes' if number % 2 == 0 else 'no'
 
 
-def is_correct_input_number(input_str: str) -> namedtuple:
+def set_question_and_answer(question, answer: str) -> namedtuple:
     """
     Check the input string for a number.
 
     Args:
-        input_str: string to check
+        question: question to the user
+        answer: correct answer
 
     Returns:
-        tuple:
+        namedtuple: contains question and correct answer
     """
-    number = namedtuple('InputNumber', 'success result')
-    try:
-        return number(success=True, result=int(input_str))
-    except ValueError:
-        return number(success=False, result=-1)
+    game_iter = namedtuple('GameIter', 'question answer')
+    return game_iter(question=question, answer=answer)
 
 
 def start_play(description: str, iter_func_game):
