@@ -1,1 +1,1 @@
-"""Scripts."""
+"""Games scripts."""

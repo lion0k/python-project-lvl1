@@ -1,7 +1,6 @@
 """Game engine and additional functions."""
 
 from collections import namedtuple
-from operator import add, mul, sub
 from random import randint
 
 from brain_games.cli import (
@@ -14,7 +13,6 @@ from brain_games.cli import (
 )
 
 COUNT_PLAY_TRY = 3
-OPERATIONS = ('+', '-', '*')
 
 
 def get_random_number(min_num=1, max_num=30) -> int:
@@ -29,52 +27,6 @@ def get_random_number(min_num=1, max_num=30) -> int:
         int
     """
     return randint(min_num, max_num)
-
-
-def get_random_operation() -> namedtuple:
-    """
-    Get an random operation.
-
-    Returns:
-        namedtuple: contains current operation and function
-    """
-    operations_func = {'+': add, '-': sub, '*': mul}
-    op_random = namedtuple('OperationRandom', 'operation operation_func')
-    current_operation = OPERATIONS[get_random_number(0, 2)]
-    return op_random(
-        operation=current_operation,
-        operation_func=operations_func[current_operation],
-    )
-
-
-def is_odd(number: int) -> str:
-    """
-    Parity check.
-
-    Args:
-        number: number to check
-
-    Returns:
-        str: 'yes' or 'no'
-    """
-    return 'yes' if number % 2 == 0 else 'no'
-
-
-def gcd(op1: int, op2: int) -> int:
-    """
-    Found great common divider.
-
-    Args:
-        op1: operand 1
-        op2: operand 2
-
-    Returns:
-        int
-    """
-    if (op1 == 0) or (op2 == 0):
-        return max(op1, op2)
-    op_min = min(op1, op2)
-    return gcd(max(op1, op2) % op_min, op_min)
 
 
 def set_question_and_answer(question, answer: str) -> namedtuple:
