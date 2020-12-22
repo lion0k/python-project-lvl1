@@ -4,7 +4,7 @@
 
 from collections import namedtuple
 
-from engine import get_random_number, is_odd, start_play
+from brain_games.engine import get_random_number, is_odd, start_play
 
 DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
