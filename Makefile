@@ -1,6 +1,18 @@
 brain-games:
 		poetry run brain-games
 
+brain-even:
+		poetry run brain-even
+
+brain-gcd:
+		poetry run brain-gcd
+
+brain-progression:
+		poetry run brain-progression
+
+brain-prime:
+		poetry run brain-prime
+
 build:
 		poetry build ${arg}
 

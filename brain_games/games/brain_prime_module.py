@@ -3,7 +3,7 @@
 from brain_games.engine import get_random_number, set_question_and_answer
 
 
-def is_prime(number: int):
+def is_prime(number: int) -> str:
     """
     Check if the number is prime. Used sieve of Eratosthenes.
 
