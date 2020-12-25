@@ -2,6 +2,8 @@
 
 from brain_games.engine import get_random_number, set_question_and_answer
 
+DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
+
 
 def is_odd(number: int) -> str:
     """
@@ -16,9 +18,9 @@ def is_odd(number: int) -> str:
     return 'yes' if number % 2 == 0 else 'no'
 
 
-def iter_brain_even() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
-    Run iteration game function.
+    Get a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer

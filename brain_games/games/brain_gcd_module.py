@@ -2,6 +2,8 @@
 
 from brain_games.engine import get_random_number, set_question_and_answer
 
+DESCRIPTION = 'Find the greatest common divisor of given numbers.'
+
 
 def gcd(op1: int, op2: int) -> int:
     """
@@ -20,9 +22,9 @@ def gcd(op1: int, op2: int) -> int:
     return gcd(max(op1, op2) % op_min, op_min)
 
 
-def iter_brain_gcd() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
-    Run iteration game function.
+    Get a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer

@@ -5,6 +5,7 @@ from operator import add, mul, sub
 
 from brain_games.engine import get_random_number, set_question_and_answer
 
+DESCRIPTION = 'What is the result of the expression?'
 OPERATIONS = ('+', '-', '*')
 
 
@@ -24,9 +25,9 @@ def get_random_operation() -> namedtuple:
     )
 
 
-def iter_brain_calc() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
-    Run iteration game function.
+    Get a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer

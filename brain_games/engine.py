@@ -12,7 +12,7 @@ from brain_games.cli import (
     welcome_user,
 )
 
-COUNT_PLAY_TRY = 3
+NUMBER_STEPS_TO_PLAY = 3
 
 
 def get_random_number(min_num=1, max_num=30) -> int:
@@ -40,30 +40,31 @@ def set_question_and_answer(question, answer: str) -> namedtuple:
     Returns:
         namedtuple: contains question and correct answer
     """
-    game_iter = namedtuple('GameIter', 'question answer')
-    return game_iter(question=question, answer=answer)
+    qa = namedtuple('QA', 'question answer')
+    return qa(question=question, answer=answer)
 
 
-def start_play(description: str, iter_func_game):
+def start_play(game):
     """
-    Start game iterations.
+    Start game.
 
     Args:
-        description: game description
-        iter_func_game: function game
+        game: game module
     """
     user_name = welcome_user()
-    print_description(description)
-    count = COUNT_PLAY_TRY
+    print_description(game.DESCRIPTION)
 
-    while count:
-        iter_game = iter_func_game()
-        user_answer = set_question(iter_game.question)
-        if user_answer != iter_game.answer:
-            print_wrong_answer(user_name, user_answer, iter_game.answer)
+    for step in range(1, NUMBER_STEPS_TO_PLAY + 1):
+        question_and_answer = game.get_question_and_correct_answer()
+        user_answer = set_question(question_and_answer.question)
+        if user_answer != question_and_answer.answer:
+            print_wrong_answer(
+                user_name,
+                user_answer,
+                question_and_answer.answer,
+            )
             break
         print_success_answer()
-        count -= 1
 
-    if not count:
-        print_end_game(user_name)
+        if step == NUMBER_STEPS_TO_PLAY:
+            print_end_game(user_name)

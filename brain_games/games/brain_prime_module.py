@@ -2,6 +2,8 @@
 
 from brain_games.engine import get_random_number, set_question_and_answer
 
+DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+
 
 def is_prime(number: int) -> str:
     """
@@ -22,9 +24,9 @@ def is_prime(number: int) -> str:
     return 'yes' if arr[number] else 'no'
 
 
-def iter_brain_prime() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
-    Run iteration game function.
+    Get a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer

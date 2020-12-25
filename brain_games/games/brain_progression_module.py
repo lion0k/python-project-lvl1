@@ -2,6 +2,8 @@
 
 from brain_games.engine import get_random_number, set_question_and_answer
 
+DESCRIPTION = 'What number is missing in the progression?'
+
 
 def get_random_progression() -> list:
     """
@@ -16,9 +18,9 @@ def get_random_progression() -> list:
     return [str(_) for _ in range(start_number, stop_number, step)]
 
 
-def iter_brain_progression() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
-    Run iteration game function.
+    Get a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer
