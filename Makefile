@@ -14,7 +14,7 @@ brain-prime:
 		poetry run brain-prime
 
 build:
-		poetry build ${arg}
+		poetry build
 
 install:
 		poetry install

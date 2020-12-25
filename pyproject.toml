@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "hexlet_code"
-version = "0.1.0"
-description = ""
-authors = ["li0n0k"]
+version = "0.1.1"
+description = "Project Brain Games on www.hexlet.io"
+authors = ["li0n0k <li0n0m0nk@gmail.com>"]
 packages = [
   { include = "brain_games" },
 ]

@@ -63,7 +63,7 @@ def set_question(question: str) -> str:
         question: question to user
 
     Returns:
-        str
+        str: user answer
     """
     print('Question: {question}'.format(question=question))
     return prompt.string('Your answer: ')
