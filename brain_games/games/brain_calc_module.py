@@ -3,7 +3,7 @@
 from collections import namedtuple
 from operator import add, mul, sub
 
-from brain_games.engine import get_random_number, set_question_and_answer
+from brain_games.engine import get_random_number
 
 DESCRIPTION = 'What is the result of the expression?'
 OPERATIONS = ('+', '-', '*')
@@ -25,9 +25,9 @@ def get_random_operation() -> namedtuple:
     )
 
 
-def get_question_and_correct_answer() -> tuple:
+def make_question_and_get_correct_answer() -> tuple:
     """
-    Get a question and prepare a correct answer.
+    Make a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer
@@ -40,4 +40,4 @@ def get_question_and_correct_answer() -> tuple:
         v2=operand2,
     )
     answer = operation.operation_func(operand1, operand2)
-    return set_question_and_answer(question, str(answer))
+    return question, str(answer)

@@ -1,6 +1,6 @@
 """Game brain prime logic."""
 
-from brain_games.engine import get_random_number, set_question_and_answer
+from brain_games.engine import get_random_number
 
 DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
@@ -24,12 +24,12 @@ def is_prime(number: int) -> str:
     return 'yes' if arr[number] else 'no'
 
 
-def get_question_and_correct_answer() -> tuple:
+def make_question_and_get_correct_answer() -> tuple:
     """
-    Get a question and prepare a correct answer.
+    Make a question and prepare a correct answer.
 
     Returns:
         tuple: namedtuple contains question and correct answer
     """
     number = get_random_number(min_num=2, max_num=100)
-    return set_question_and_answer(number, is_prime(number))
+    return number, is_prime(number)
