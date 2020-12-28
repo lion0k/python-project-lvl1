@@ -30,3 +30,18 @@ publish:
 
 package-install:
 		pip install --user dist/*.whl
+
+git: gitadd gitcom gitpush
+
+gitadd:
+	git add -A .
+
+gitcom:
+	git commit -m "$(C)"
+
+gitpush:
+	git push
+
+release:
+	git tag v0.1.$(P)
+	git push origin v0.1.$(P)

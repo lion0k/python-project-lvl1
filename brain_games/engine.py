@@ -2,16 +2,42 @@
 
 from random import randint
 
-from brain_games.cli import (
-    print_description,
-    print_end_game,
-    print_success_answer,
-    print_wrong_answer,
-    set_question,
-    welcome_user,
-)
+import prompt
+
+from brain_games.cli import welcome_user
 
 NUMBER_STEPS_TO_PLAY = 3
+WRONG_ANSWER = "'{ua}' is wrong answer ;(. Correct answer was '{ca}'."
+TRY_AGAIN = "Let's try again, {user_name}!"
+END_GAME = 'Congratulations {user_name}!'
+
+
+def set_output(template: str, **kwargs):
+    """
+    Set output information.
+
+    Args:
+        template: template for print
+        kwargs: possible args
+    """
+    if kwargs:
+        print(template.format(**kwargs))
+    else:
+        print(template)
+
+
+def set_question(question: str) -> str:
+    """
+    Ask a question to the user.
+
+    Args:
+        question: game question
+
+    Returns:
+        str: the user's answer to the question
+    """
+    set_output('Question: {question}', question=question)
+    return prompt.string('Your answer: ')
 
 
 def get_random_number(min_num=1, max_num=30) -> int:
@@ -36,19 +62,20 @@ def start_play(game):
         game: game module
     """
     user_name = welcome_user()
-    print_description(game.DESCRIPTION)
+    set_output(game.DESCRIPTION)
 
     for step in range(1, NUMBER_STEPS_TO_PLAY + 1):
         question, correct_answer = game.make_question_and_get_correct_answer()
         user_answer = set_question(question)
         if user_answer != correct_answer:
-            print_wrong_answer(
-                user_name,
-                user_answer,
-                correct_answer,
+            set_output(
+                WRONG_ANSWER,
+                ua=user_answer,
+                ca=correct_answer,
             )
+            set_output(TRY_AGAIN, user_name=user_name)
             break
-        print_success_answer()
+        set_output('Correct!')
 
         if step == NUMBER_STEPS_TO_PLAY:
-            print_end_game(user_name)
+            set_output(END_GAME, user_name=user_name)
