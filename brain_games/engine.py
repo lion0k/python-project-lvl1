@@ -20,10 +20,7 @@ def set_output(template: str, **kwargs):
         template: template for print
         kwargs: possible args
     """
-    if kwargs:
-        print(template.format(**kwargs))
-    else:
-        print(template)
+    print(template.format(**kwargs))
 
 
 def set_question(question: str) -> str:
