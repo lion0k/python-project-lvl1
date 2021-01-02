@@ -1,9 +1,8 @@
 name: hexlet-check
 
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 
 jobs:
   build:
@@ -11,14 +10,11 @@ jobs:
     strategy:
       matrix:
         # we want to test our package on several versions of Python
-        python-version: [3.6, 3.7, 3.8]    
+        python-version: [3.6, 3.7, 3.8]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
-        
-      - name: Hexlet project check
-        uses: hexlet/project-action@release
-        #uses: actions/setup-python@v2
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
         # make depends on poetry
@@ -29,4 +25,4 @@ jobs:
           make install
       - name: Run linter
         run: |
-          make lint
+          make check
