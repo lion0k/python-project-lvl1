@@ -3,8 +3,13 @@ name = "hexlet_code"
 version = "0.1.4"
 description = "Project Brain Games on www.hexlet.io"
 authors = ["li0n0k <li0n0m0nk@gmail.com>"]
+repository = "https://github.com/lion0k/python-project-lvl1"
 packages = [
   { include = "brain_games" },
+]
+classifiers = [
+  "Topic :: Education",
+  "Programming Language :: Python",
 ]
 
 [tool.poetry.scripts]

@@ -1,20 +1,20 @@
 brain-games:
-		poetry run brain-games
+		python -m brain_games.scripts.brain_games
 
 brain-calc:
-		poetry run brain-calc
+		python -m brain_games.scripts.brain_calc
 
 brain-even:
-		poetry run brain-even
+		python -m brain_games.scripts.brain_even
 
 brain-gcd:
-		poetry run brain-gcd
+		python -m brain_games.scripts.brain_gcd
 
 brain-progression:
-		poetry run brain-progression
+		python -m brain_games.scripts.brain_progression
 
 brain-prime:
-		poetry run brain-prime
+		python -m brain_games.scripts.brain_prime
 
 build:
 		poetry build

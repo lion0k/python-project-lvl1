@@ -1,0 +1,7 @@
+dist/
+.venv/
+.python-version
+brain_games/venv/
+hexlet_git_python
+hexlet_git_python.pub
+
