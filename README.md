@@ -24,17 +24,27 @@ This package contains few simple games:
 [![asciicast](https://asciinema.org/a/XmuOPlmZuCnwWSgQbJoh7Gqf9.svg)](https://asciinema.org/a/XmuOPlmZuCnwWSgQbJoh7Gqf9)
 ***
 #### Usage
-##### Brain even `poetry run brain-even`
+##### Brain even 
+```poetry run brain-even```
+
 [![asciicast](https://asciinema.org/a/A2XSqKTYfy5BJfMsh5bmRWDZA.svg)](https://asciinema.org/a/A2XSqKTYfy5BJfMsh5bmRWDZA)
 
-##### Brain Calculator `poetry run brain-calc`
+##### Brain Calculator 
+```poetry run brain-calc```
+
 [![asciicast](https://asciinema.org/a/0gfX8RIjgOLKLuUN0hg5auY31.svg)](https://asciinema.org/a/0gfX8RIjgOLKLuUN0hg5auY31)
 
-##### Brain GCD (Greatest common divider) `poetry run brain-gcd`
+##### Brain GCD (Greatest common divider) 
+```poetry run brain-gcd```
+
 [![asciicast](https://asciinema.org/a/jcKD9WsW37GBYnKG2L5sUoNum.svg)](https://asciinema.org/a/jcKD9WsW37GBYnKG2L5sUoNum)
 
-##### Brain Arithmetic progression `poetry run brain-progression`
+##### Brain Arithmetic progression 
+```poetry run brain-progression```
+
 [![asciicast](https://asciinema.org/a/6oHmogF4gDxlS4zRoYumPLoVk.svg)](https://asciinema.org/a/6oHmogF4gDxlS4zRoYumPLoVk)
 
-##### Brain Prime number `poetry run brain-prime`
+##### Brain Prime number 
+```poetry run brain-prime```
+
 [![asciicast](https://asciinema.org/a/GVPMmAxgzjbTHXrNqYDrG7MEa.svg)](https://asciinema.org/a/GVPMmAxgzjbTHXrNqYDrG7MEa)
