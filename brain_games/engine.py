@@ -51,7 +51,7 @@ def get_random_number(min_num=1, max_num=30) -> int:
     return randint(min_num, max_num)
 
 
-def start_play(game):
+def play(game):
     """
     Start game.
 
