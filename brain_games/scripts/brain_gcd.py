@@ -3,12 +3,12 @@
 """Game Great Common Divider."""
 
 from brain_games.engine import play
-from brain_games.games import brain_gcd_module
+from brain_games.games import gcd
 
 
 def main():
     """Do main loop start the game."""
-    play(brain_gcd_module)
+    play(gcd)
 
 
 if __name__ == '__main__':

@@ -3,12 +3,12 @@
 """Game arithmetic progression."""
 
 from brain_games.engine import play
-from brain_games.games import brain_progression_module
+from brain_games.games import progression
 
 
 def main():
     """Do main loop start the game."""
-    play(brain_progression_module)
+    play(progression)
 
 
 if __name__ == '__main__':

@@ -3,12 +3,12 @@
 """Game Brain Calculation."""
 
 from brain_games.engine import play
-from brain_games.games import brain_calc_module
+from brain_games.games import calc
 
 
 def main():
     """Do main loop start the game."""
-    play(brain_calc_module)
+    play(calc)
 
 
 if __name__ == '__main__':

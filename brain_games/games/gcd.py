@@ -1,13 +1,14 @@
 """Game brain gcd logic."""
 
-from brain_games.engine import get_random_number
+from random import randint
 
 DESCRIPTION = 'Find the greatest common divisor of given numbers.'
+GAME_RANGE = (0, 30)
 
 
 def gcd(op1: int, op2: int) -> int:
     """
-    Found great common divider.
+    Found great common divisor.
 
     Args:
         op1: operand 1
@@ -22,14 +23,14 @@ def gcd(op1: int, op2: int) -> int:
     return gcd(max(op1, op2) % op_min, op_min)
 
 
-def make_question_and_get_correct_answer() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
     Make a question and prepare a correct answer.
 
     Returns:
-        tuple: namedtuple contains question and correct answer
+        tuple: contains question and correct answer
     """
-    operand1, operand2 = [get_random_number() for _ in range(2)]
+    operand1, operand2 = [randint(*GAME_RANGE) for _ in range(2)]
     question = '{v1} {v2}'.format(
         v1=operand1,
         v2=operand2,

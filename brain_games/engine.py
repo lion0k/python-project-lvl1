@@ -1,18 +1,20 @@
 """Game engine and additional functions."""
 
-from random import randint
-
 import prompt
 
 from brain_games.cli import welcome_user
 
 NUMBER_STEPS_TO_PLAY = 3
-WRONG_ANSWER = "'{ua}' is wrong answer ;(. Correct answer was '{ca}'."
+WRONG_ANSWER = (
+    "'{user_answer}' is wrong answer ;(."
+    +
+    " Correct answer was '{correct_answer}'."
+)
 TRY_AGAIN = "Let's try again, {user_name}!"
 END_GAME = 'Congratulations {user_name}!'
 
 
-def set_output(template: str, **kwargs):
+def inform_user(template: str, **kwargs):
     """
     Set output information.
 
@@ -23,7 +25,7 @@ def set_output(template: str, **kwargs):
     print(template.format(**kwargs))
 
 
-def set_question(question: str) -> str:
+def ask_question(question: str) -> str:
     """
     Ask a question to the user.
 
@@ -33,22 +35,8 @@ def set_question(question: str) -> str:
     Returns:
         str: the user's answer to the question
     """
-    set_output('Question: {question}', question=question)
+    inform_user('Question: {question}', question=question)
     return prompt.string('Your answer: ')
-
-
-def get_random_number(min_num=1, max_num=30) -> int:
-    """
-    Get an random number from range.
-
-    Args:
-        min_num: minimum number, default = 1
-        max_num: maximum number, default = 30
-
-    Returns:
-        int
-    """
-    return randint(min_num, max_num)
 
 
 def play(game):
@@ -59,20 +47,20 @@ def play(game):
         game: game module
     """
     user_name = welcome_user()
-    set_output(game.DESCRIPTION)
+    inform_user(game.DESCRIPTION)
 
     for step in range(1, NUMBER_STEPS_TO_PLAY + 1):
-        question, correct_answer = game.make_question_and_get_correct_answer()
-        user_answer = set_question(question)
+        question, correct_answer = game.get_question_and_correct_answer()
+        user_answer = ask_question(question)
         if user_answer != correct_answer:
-            set_output(
+            inform_user(
                 WRONG_ANSWER,
-                ua=user_answer,
-                ca=correct_answer,
+                user_answer=user_answer,
+                correct_answer=correct_answer,
             )
-            set_output(TRY_AGAIN, user_name=user_name)
+            inform_user(TRY_AGAIN, user_name=user_name)
             break
-        set_output('Correct!')
+        inform_user('Correct!')
 
         if step == NUMBER_STEPS_TO_PLAY:
-            set_output(END_GAME, user_name=user_name)
+            inform_user(END_GAME, user_name=user_name)

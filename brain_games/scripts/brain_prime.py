@@ -3,12 +3,12 @@
 """Game Brain Prime."""
 
 from brain_games.engine import play
-from brain_games.games import brain_prime_module
+from brain_games.games import prime
 
 
 def main():
     """Do main loop start the game."""
-    play(brain_prime_module)
+    play(prime)
 
 
 if __name__ == '__main__':

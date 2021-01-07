@@ -1,8 +1,9 @@
 """Game brain even logic."""
 
-from brain_games.engine import get_random_number
+from random import randint
 
 DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
+GAME_RANGE = (0, 30)
 
 
 def is_odd(number: int) -> str:
@@ -18,12 +19,12 @@ def is_odd(number: int) -> str:
     return 'yes' if number % 2 == 0 else 'no'
 
 
-def make_question_and_get_correct_answer() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
     Make a question and prepare a correct answer.
 
     Returns:
-        tuple: namedtuple contains question and correct answer
+        tuple: contains question and correct answer
     """
-    number = get_random_number()
+    number = randint(*GAME_RANGE)
     return number, is_odd(number)

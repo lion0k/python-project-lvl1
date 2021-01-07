@@ -1,8 +1,11 @@
 """Game arithmetic progression logic."""
 
-from brain_games.engine import get_random_number
+from random import randint
 
 DESCRIPTION = 'What number is missing in the progression?'
+GAME_RANGE = (0, 9)
+STEP_PROGRESSION_RANGE = (0, 10)
+START_PROGRESSION_RANGE = (0, 50)
 
 
 def get_random_progression() -> list:
@@ -12,21 +15,21 @@ def get_random_progression() -> list:
     Returns:
          list
     """
-    start_number = get_random_number(max_num=50)
-    step = get_random_number(max_num=10)
+    start_number = randint(*START_PROGRESSION_RANGE)
+    step = randint(*STEP_PROGRESSION_RANGE)
     stop_number = step * 10 + start_number
-    return [str(_) for _ in range(start_number, stop_number, step)]
+    return [str(number) for number in range(start_number, stop_number, step)]
 
 
-def make_question_and_get_correct_answer() -> tuple:
+def get_question_and_correct_answer() -> tuple:
     """
     Make a question and prepare a correct answer.
 
     Returns:
-        tuple: namedtuple contains question and correct answer
+        tuple: contains question and correct answer
     """
     progression = get_random_progression()
-    random_value = get_random_number(min_num=0, max_num=9)
+    random_value = randint(*GAME_RANGE)
     answer = progression[random_value]
     progression[random_value] = '..'
     question = ' '.join(progression)
