@@ -8,7 +8,7 @@ GAME_RANGE = (0, 30)
 
 def gcd(op1: int, op2: int) -> int:
     """
-    Found great common divisor.
+    Find great common divisor.
 
     Args:
         op1: operand 1

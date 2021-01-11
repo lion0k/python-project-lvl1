@@ -8,7 +8,7 @@ GAME_RANGE = (0, 30)
 
 def is_odd(number: int) -> str:
     """
-    Parity check.
+    Check if number is odd.
 
     Args:
         number: number to check
