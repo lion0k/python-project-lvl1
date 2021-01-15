@@ -1,13 +1,10 @@
 dist/
 .venv/
-.python-version
+venv/
+__pycache__/
 .idea/
 .Makefile.swp
-brain_games/venv/
-brain_games/.idea/
-brain_games/__pycache__/
-brain_games/games/__pycache__/
-brain_games/scripts/__pycache__/
+.python-version
 hexlet_git_python
 hexlet_git_python.pub
 

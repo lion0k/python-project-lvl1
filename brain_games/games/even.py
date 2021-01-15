@@ -6,17 +6,17 @@ DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 GAME_RANGE = (0, 30)
 
 
-def is_odd(number: int) -> str:
+def is_even(number: int) -> bool:
     """
-    Check if number is odd.
+    Check if number is even.
 
     Args:
         number: number to check
 
     Returns:
-        str: 'yes' or 'no'
+        bool
     """
-    return 'yes' if number % 2 == 0 else 'no'
+    return number % 2 == 0
 
 
 def get_question_and_correct_answer() -> tuple:
@@ -26,5 +26,6 @@ def get_question_and_correct_answer() -> tuple:
     Returns:
         tuple: contains question and correct answer
     """
-    number = randint(*GAME_RANGE)
-    return number, is_odd(number)
+    question = randint(*GAME_RANGE)
+    answer = 'yes' if is_even(question) else 'no'
+    return question, answer

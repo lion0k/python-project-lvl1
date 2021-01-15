@@ -6,7 +6,7 @@ DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 GAME_RANGE = (2, 100)
 
 
-def is_prime(number: int) -> str:
+def is_prime(number: int) -> bool:
     """
     Check if the number is prime. Uses sieve of Eratosthenes.
 
@@ -14,15 +14,20 @@ def is_prime(number: int) -> str:
         number: number to check
 
     Returns:
-        str: 'yes' or 'no'
+        bool
     """
+    if number < 2:
+        return False
+
     bool_list = [True for _ in range(number + 1)]
     for index in range(2, number + 1):
         if bool_list[index]:
             for not_prime in range(index ** 2, number + 1, index):
                 bool_list[not_prime] = False
-
-    return 'yes' if bool_list[number] else 'no'
+                if not bool_list[number]:
+                    return False
+        if index > number // 2:
+            return True
 
 
 def get_question_and_correct_answer() -> tuple:
@@ -32,5 +37,6 @@ def get_question_and_correct_answer() -> tuple:
     Returns:
         tuple: contains question and correct answer
     """
-    number = randint(*GAME_RANGE)
-    return number, is_prime(number)
+    question = randint(*GAME_RANGE)
+    answer = 'yes' if is_prime(question) else 'no'
+    return question, answer
