@@ -6,7 +6,7 @@ DESCRIPTION = 'What number is missing in the progression?'
 GAME_RANGE = (0, 9)
 STEP_PROGRESSION_RANGE = (0, 10)
 START_PROGRESSION_RANGE = (0, 50)
-NUMBER_OF_VALUES_IN_PROGRESSION = 10
+PROGRESSION_LENGTH = 10
 
 
 def get_progression(start_number: int, step: int, number_values: int) -> list:
@@ -35,7 +35,7 @@ def get_question_and_correct_answer() -> tuple:
     progression = get_progression(
         randint(*START_PROGRESSION_RANGE),
         randint(*STEP_PROGRESSION_RANGE),
-        NUMBER_OF_VALUES_IN_PROGRESSION,
+        PROGRESSION_LENGTH,
     )
     random_value = randint(*GAME_RANGE)
     answer = progression[random_value]

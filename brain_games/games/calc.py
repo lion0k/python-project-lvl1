@@ -8,7 +8,7 @@ GAME_RANGE = (0, 30)
 OPERATIONS = '+-*'
 
 
-def get_correct_answer(operand1: str, operand2: str, operation: str) -> int:
+def calculate(operand1: str, operand2: str, operation: str) -> int:
     """
     Calculate correct answer.
 
@@ -35,9 +35,10 @@ def get_question_and_correct_answer() -> tuple:
     Returns:
         tuple: contains question and correct answer
     """
-    operand1, operand2 = [randint(*GAME_RANGE) for _ in range(2)]
+    operand1 = randint(*GAME_RANGE)
+    operand2 = randint(*GAME_RANGE)
     current_operation = choice(OPERATIONS)
-    answer = str(get_correct_answer(operand1, operand2, current_operation))
+    answer = str(calculate(operand1, operand2, current_operation))
     question = '{value1} {operation} {value2}'.format(
         value1=operand1,
         operation=current_operation,
