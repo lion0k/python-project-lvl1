@@ -59,7 +59,7 @@ def play(game):
 
     inform_user(game.DESCRIPTION)
 
-    for step in range(1, NUMBER_STEPS_TO_PLAY + 1):
+    for _ in range(1, NUMBER_STEPS_TO_PLAY + 1):
         question, correct_answer = game.get_question_and_correct_answer()
         user_answer = ask_question(QUESTION, USER_ANSWER, question=question)
         if user_answer != correct_answer:
@@ -72,5 +72,5 @@ def play(game):
             break
         inform_user(CORRECT_ANSWER)
 
-        if step == NUMBER_STEPS_TO_PLAY:
-            inform_user(END_GAME, user_name=user_name)
+    else:
+        inform_user(END_GAME, user_name=user_name)

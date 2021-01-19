@@ -3,10 +3,10 @@
 from random import randint
 
 DESCRIPTION = 'What number is missing in the progression?'
-GAME_RANGE = (0, 9)
 STEP_PROGRESSION_RANGE = (0, 10)
 START_PROGRESSION_RANGE = (0, 50)
 PROGRESSION_LENGTH = 10
+GAME_RANGE = (0, PROGRESSION_LENGTH - 1)
 
 
 def get_progression(start_number: int, step: int, number_values: int) -> list:
